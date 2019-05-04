@@ -1,0 +1,43 @@
+.header-emojis {
+    font-size: 1.4em;
+    display: block;
+    margin: 1.1em 0 1.1em .5em;
+}
+.image {
+  margin: 1.2em 1.2em 1.2em .3em;
+  width: 3em;
+  height: auto;
+  border: 1.5px solid #002280;
+  box-shadow: 5px 15px 20px -15px rgba(0, 0, 0, 0.3), 0 85px 60px -25px rgba(0, 0, 0, 0.1);
+}
+.display-name {
+  display: inline;
+  font-weight: 700;
+  color: #002280;
+  /* position: relative;
+  bottom: 5px; */
+}
+.user {
+    float: right
+}
+.spinner-body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  line-height: 2em;
+  font-size: 1.9em;
+  color: #002280;
+}
+
+@media only screen and (max-width: 767px) {
+  .display-name {
+    display: none;
+  }
+  .spinner-body {
+    font-size: 1.5em
+  }
+}
