@@ -1,20 +1,13 @@
-import React, { Fragment, useContext } from 'react'
-import { ArtistsContext } from '../../context/ArtistsContext'
-import { TracksContext } from '../../context/TracksContext'
-import '../styles/Card.css'
+import React, { Fragment, useContext } from "react";
+import { DataContext } from "../../context/DataContext";
+import "../styles/Card.css";
 
 export const Card = () => {
-  
-  const { artistsState } = useContext(ArtistsContext);
-  const { tracksState } = useContext(TracksContext)
-
-  const  { allTime } = artistsState
+  const { data } = useContext(DataContext);
 
   return (
-  <Fragment>
-    <div className='card'>
-
-    </div>
-  </Fragment>
-  )
-}
+    <Fragment>
+      <div className="card" />
+    </Fragment>
+  );
+};
