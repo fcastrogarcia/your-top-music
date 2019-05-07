@@ -1,3 +1,22 @@
 .card {
-  
+  display: flex;
+  flex-direction: row;
+  height: 7em;
+  padding: 0em;
+  margin: 0em;
+}
+.name {
+  display: inline;
+  margin: 1.2em;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.card-image {
+  width: auto;
+  height: 100%;
+}
+.index {
+  width: 2em;
+  align-self: center;
+  text-align: center;
 }

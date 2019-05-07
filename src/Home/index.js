@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import Header from "./components/Header";
 import useFetchData from "../customHooks/useFetchData";
 import useTokenParser from "../customHooks/useParseToken";
@@ -8,10 +8,9 @@ import { Layout } from "./components/Layout";
 export default function Home() {
   //Context
 
+  //custom hooks
   const token = useTokenParser();
   const { isLoading } = useFetchData(token);
-
-  // if (isError) return <div className='spinner-body'><h1>something went wrong...</h1></div>;
 
   return (
     <Fragment>

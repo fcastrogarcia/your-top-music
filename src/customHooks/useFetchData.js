@@ -20,8 +20,8 @@ export default token => {
         endpoints.map(endpoint => spotify(token)(endpoint))
       ).catch(error => console.log(error));
 
-      const res = apiRes.map(res =>
-        apiRes.indexOf(res) === 0 ? res.data : res.data.items
+      const res = apiRes.map((res, index) =>
+        index === 0 ? res.data : res.data.items
       );
       setData({
         userData: res[0],
@@ -42,9 +42,8 @@ export default token => {
     dataFetch();
   }, [token]);
   const state = {
-    data,
     isLoading
   };
-  console.log(data);
+
   return state;
 };
