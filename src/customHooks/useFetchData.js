@@ -3,7 +3,7 @@ import { DataContext } from "../context/DataContext";
 import { endpoints } from "../services/endpoints";
 import { spotify } from "../services/axios";
 
-export default token => {
+export default () => {
   //Context
   const { data, setData } = useContext(DataContext);
   //local state
@@ -11,11 +11,12 @@ export default token => {
   const [isError, setIsError] = useState(true);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
     const dataFetch = async () => {
-      if (token === "" || token === null) {
+      if (token === undefined) {
         return;
       }
-
       const apiRes = await Promise.all(
         endpoints.map(endpoint => spotify(token)(endpoint))
       ).catch(error => console.log(error));
@@ -40,7 +41,7 @@ export default token => {
       setIsLoading(false);
     };
     dataFetch();
-  }, [token]);
+  }, []);
   const state = {
     isLoading
   };

@@ -4,19 +4,18 @@ import { getNewToken } from "../services/axios";
 
 export default function useTokenParser() {
   //Error context
-  // const { isError, setIsError } = useContext(UserContext);
-
-  //local state
-  const [token, setToken] = useState("");
-  // const [ refreshToken, setRefreshToken ] = useState('')
-
+  // const { isError, setIsError } = useContext(UserContext)
   useEffect(() => {
-    async function tokenParser() {
+    function tokenParser() {
       // if (!isError) {
-      const { access_token, refresh_token } = await queryString.parse(
+      const { access_token, refresh_token } = queryString.parse(
         window.location.search
       );
-      setToken(access_token);
+
+      if (access_token !== undefined) {
+        localStorage.setItem("refresh_token", refresh_token);
+        localStorage.setItem("token", access_token);
+      }
       //setRefreshToken(refresh_token)
     }
     //     else {
@@ -29,7 +28,4 @@ export default function useTokenParser() {
     // }
     tokenParser();
   }, []);
-
-  return token;
-  // refreshToken
 }

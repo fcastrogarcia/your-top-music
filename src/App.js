@@ -8,8 +8,8 @@ import { DataProvider } from "./context/DataContext";
 function App() {
   return (
     <Switch>
-      <Route exact path="/" render={() => <Redirect to="/login" />} />
-      <Route exact path="/login" component={Login} />
+      <Route exact path="/" render={() => <Redirect to="/connect" />} />
+      <Route exact path="/connect" component={Login} />
       <DataProvider>
         <Route exact path="/home" component={Home} />
       </DataProvider>
