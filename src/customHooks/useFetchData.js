@@ -5,14 +5,13 @@ import { spotify } from "../services/axios";
 
 export default () => {
   //Context
-  const { data, setData } = useContext(DataContext);
+  const { setData } = useContext(DataContext);
   //local state
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(true);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
     const dataFetch = async () => {
       if (token === undefined) {
         return;
@@ -41,7 +40,7 @@ export default () => {
       setIsLoading(false);
     };
     dataFetch();
-  }, []);
+  }, [token, setData]);
   const state = {
     isLoading
   };

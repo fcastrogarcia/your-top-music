@@ -1,21 +1,23 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import "../styles/Card.css";
-import { Image } from "react-bootstrap";
 
 export const Card = ({ cardData, indx }) => {
-  const { name, images } = cardData;
-
+  var { name, images, genres } = cardData;
+  genres = genres.slice(0, 3).join(", ");
   return (
     <Fragment>
       <div className="card">
-        <h4 className="index">{indx}</h4>
-        <Image
-          src={images[2].url}
-          className="card-image"
-          style={{ display: "inline" }}
-        />
-        <p className="name">{name}</p>
+        <p className="index">{indx}</p>
+        <span className="img-container">
+          <img src={images[2].url} className="card-image" alt="img" />
+        </span>
+        <div className="labels">
+          <p className="label-name">{name}</p>
+          <p>{genres}</p>
+        </div>
       </div>
     </Fragment>
   );
 };
+
+// {genres.map(genre => genre)}

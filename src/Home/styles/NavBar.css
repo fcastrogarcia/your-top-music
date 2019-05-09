@@ -1,0 +1,15 @@
+.NavBar {
+  display: flex;
+  margin: auto;
+  list-style: none;
+  justify-content: flex-start;
+}
+li {
+  margin: 1em;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+}
+.tab-active {
+  text-decoration: underline;
+  color: #002280;
+}
