@@ -21,6 +21,7 @@ export default function Header() {
           </Col>
           <Col>
             <div className="user">
+              <i class="fas fa-caret-down" />
               <p className="display-name">{display_name}</p>
               <a href={url} rel="noopener noreferrer" target="_blank">
                 <Image src={imageSrc} className="image" roundedCircle />
