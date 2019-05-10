@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "../styles/Card.css";
 
-export const Card = ({ cardData, indx }) => {
+export const ArtistCard = ({ cardData, indx }) => {
   var { name, images, genres } = cardData;
   genres = genres.slice(0, 3).join(", ");
   return (

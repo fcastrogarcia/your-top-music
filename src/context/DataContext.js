@@ -4,16 +4,16 @@ export const DataContext = createContext();
 
 export function DataProvider(props) {
   const [data, setData] = useState({});
-  const [tab, setTab] = useState(1);
+  const [type, setType] = useState("tracks");
 
   const value = useMemo(() => {
     return {
       data,
       setData,
-      tab,
-      setTab
+      type,
+      setType
     };
-  }, [data, tab]);
+  }, [data, type]);
 
   return (
     <DataContext.Provider value={value}>{props.children}</DataContext.Provider>
