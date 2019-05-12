@@ -10,6 +10,7 @@
 .img-container {
   height: 100%;
   width: 6.5em;
+  min-width: 6.5em;
 }
 .card-image {
   width: 100%;
@@ -19,22 +20,31 @@
 .index {
   width: 2em;
   align-self: center;
+  min-width: 2em;
   text-align: center;
   color: #002280;
-  font-size: 1.4em;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding-top: 0.7em;
 }
 
 .labels {
-  padding: 1em 0 1em 1em;
+  padding: 0.7em 0 1em 0.8em;
   color: #444444;
-  max-width: 50%;
-  line-height: 1.1em;
+  max-width: 100%;
+  line-height: 0.9em;
   font-size: 0.9em;
   overflow: hidden;
+  margin-right: 0.2em;
 }
-.label-name {
+
+.name-id {
+  line-height: 1.1em;
   color: #002280;
   font-weight: 700;
   font-size: 1.2em;
   max-width: 100%;
+}
+#name-id-tracks {
+  font-size: 1em;
 }

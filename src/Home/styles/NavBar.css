@@ -1,22 +1,6 @@
-.selector-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100%;
-}
-.selector {
-  cursor: pointer;
-}
-.selector p {
-  display: inline;
-  font-size: 1.1em;
-  font-weight: 700;
-  color: #002280;
-  margin: 0.8em 0.7em 0.8em 0.2em;
-  padding: 0.1em 0.2em 0.1em 0.2em;
-}
 .NavBar {
   display: flex;
+  justify-content: flex-start;
   list-style: none;
   align-items: center;
   height: 100%;
@@ -24,7 +8,6 @@
 li {
   cursor: pointer;
   text-align: center;
-  transition: all 150ms ease-out;
   margin: 0.4em 0.2em 0.4em 0.2em;
   width: 6em;
   padding: 0.1em 0.2em 0.1em 0.2em;
@@ -34,12 +17,13 @@ li {
   position: relative;
   border: none;
   font-size: 1.1em;
-  color: #444444;
+  color: #002280;
 }
 .tab-active {
   position: relative;
   color: #002280;
   font-size: 1.1em;
+  font-weight: 700;
 }
 
 .tab-overlay {
@@ -69,8 +53,5 @@ li {
   }
   .tab {
     font-size: 1em;
-  }
-
-  .NavBar {
   }
 }

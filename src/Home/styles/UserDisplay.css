@@ -1,0 +1,31 @@
+.display-name p {
+  display: inline;
+  font-weight: 700;
+  margin: 0 0 0 0.2em;
+}
+.display-name p,
+#caret {
+  cursor: pointer;
+  color: #002280;
+}
+.user {
+  float: right;
+}
+.user-dropdown {
+  position: absolute;
+  right: 5.4em;
+  top: 3.5em;
+  background-color: aqua;
+  z-index: 1;
+  height: 3em;
+}
+.user-dropdown ul {
+  list-style: none;
+  font-size: 0.9em;
+  background-color: green;
+}
+.user-dropdown li {
+  background-color: aquamarine;
+  width: 100%;
+  margin: 0;
+}
