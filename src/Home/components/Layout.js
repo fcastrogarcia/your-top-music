@@ -12,9 +12,9 @@ export default ({ term }) => {
         {term.map((item, index) => (
           <Col key={index.toString()} xs={12} lg={6} xl={4} md={6} sm={12}>
             {type === "artists" ? (
-              <ArtistCard cardData={item} indx={index + 1} />
+              <ArtistCard cardData={item} index={index + 1} />
             ) : (
-              <TrackCard cardData={item} indx={index + 1} />
+              <TrackCard cardData={item} index={index + 1} />
             )}
           </Col>
         ))}

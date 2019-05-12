@@ -4,7 +4,7 @@ export const DataContext = createContext();
 
 export function DataProvider(props) {
   const [data, setData] = useState({});
-  const [type, setType] = useState("tracks");
+  const [type, setType] = useState("artists");
 
   const value = useMemo(() => {
     return {
