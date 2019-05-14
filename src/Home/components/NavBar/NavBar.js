@@ -1,39 +1,18 @@
 import React from "react";
-import "../../styles/NavBar.css";
+import "../../styles/TabToggler.css";
 import { Container, Row, Col } from "react-bootstrap";
-import Dropdown from "./Dropdown";
+import TypeToggler from "./TypeToggler";
+import TabToggler from "./TabToggler";
 
-export default ({ setTab, tab }) => {
+export default props => {
   return (
     <Container fluid>
       <Row>
-        <Col lg={6} sm={6} xs={6}>
-          <ul className="NavBar">
-            <li
-              className={tab === 1 ? "tab-active" : "tab"}
-              onClick={() => setTab(1)}
-            >
-              <span>All-time</span>
-              <span className={tab === 1 ? "tab-overlay" : ""} />
-            </li>
-            <li
-              className={tab === 2 ? "tab-active" : "tab"}
-              onClick={() => setTab(2)}
-            >
-              <span>Six Months</span>
-              <span className={tab === 2 ? "tab-overlay" : ""} />
-            </li>
-            <li
-              className={tab === 3 ? "tab-active" : "tab"}
-              onClick={() => setTab(3)}
-            >
-              <span>Last Month</span>
-              <span className={tab === 3 ? "tab-overlay" : ""} />
-            </li>
-          </ul>
+        <Col lg={6} sm={6} xs={12} className="tab-toggler-col">
+          <TabToggler tabs={props} />
         </Col>
-        <Col lg={6} md={6} sm={6} xs={6}>
-          <Dropdown />
+        <Col lg={6} md={6} sm={6} xs={12}>
+          <TypeToggler />
         </Col>
       </Row>
     </Container>

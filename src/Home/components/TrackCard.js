@@ -7,7 +7,7 @@ export const TrackCard = ({ cardData, index }) => {
   return (
     <Fragment>
       <div className="card">
-        <p className="index">{index}°</p>
+        <p className="index">{index}</p>
         <span className="img-container">
           <img src={album.images[1].url} className="card-image" alt="img" />
         </span>

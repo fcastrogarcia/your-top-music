@@ -6,11 +6,10 @@ import { DataContext } from "../../../context/DataContext";
 export default () => {
   //Context
   const { data } = useContext(DataContext);
-  console.log(data);
   const { display_name, external_urls, images } = data.userData;
   const url = external_urls.spotify;
 
-  const imageCaca = () => {
+  const imageSrc = () => {
     if (images.length !== 0) {
       const imageSrc = images[0].url;
       return imageSrc;
@@ -29,20 +28,22 @@ export default () => {
     document.removeEventListener("click", closeMenu);
   };
   return (
-    <div className="user">
+    <div className="user-container">
       <span className="display-name" onClick={!isOpen ? showMenu : null}>
         <i className="fas fa-caret-down" id="caret" />
         <p>{display_name}</p>
-        {isOpen && (
-          <span className="user-dropdown">
-            <ul>
-              <li>Open in Spotify</li>
-              <li>Sign Out</li>
-            </ul>
-          </span>
-        )}
+        <Image src={imageSrc()} className="image" roundedCircle />
       </span>
-      <Image src={imageCaca()} className="image" roundedCircle />
+      {isOpen && (
+        <span className="user-dropdown">
+          <span id="spot-account">
+            <a href={url} target="blank">
+              Open in Spotify
+            </a>
+          </span>
+          <span id="sign-out">Sign Out</span>
+        </span>
+      )}
     </div>
   );
 };

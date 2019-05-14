@@ -1,3 +1,6 @@
+.display-name {
+  height: 3em;
+}
 .display-name p {
   display: inline;
   font-weight: 700;
@@ -8,24 +11,46 @@
   cursor: pointer;
   color: #002280;
 }
-.user {
+.user-container {
   float: right;
 }
 .user-dropdown {
   position: absolute;
-  right: 5.4em;
+  width: 9.5em;
+  height: auto;
+  right: 13.2em;
   top: 3.5em;
-  background-color: aqua;
-  z-index: 1;
-  height: 3em;
+  z-index: 2;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
-.user-dropdown ul {
-  list-style: none;
-  font-size: 0.9em;
-  background-color: green;
+.user-dropdown > span {
+  display: block;
+  color: #002280;
+  text-align: left;
+  font-size: 1em;
+  height: auto;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-weight: 700;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
 }
-.user-dropdown li {
-  background-color: aquamarine;
-  width: 100%;
-  margin: 0;
+.user-dropdown > span > a {
+  text-decoration: none;
+  color: #002280;
+}
+.user-dropdown > span:hover {
+  background-color: rgba(127, 255, 212, 0.5);
+}
+
+#sign-out:hover {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+@media only screen and (max-width: 767px) {
+  .user-dropdown {
+    right: 4.9em;
+    top: 3em;
+    width: 8.5em;
+    font-size: 1.2em;
+  }
 }

@@ -6,6 +6,8 @@
   margin: 0.2em 0 0.2em 0;
   transition: all 200ms ease-out;
   border-radius: 0;
+  border-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
 .img-container {
   height: 100%;
@@ -23,12 +25,15 @@
   min-width: 2em;
   text-align: center;
   color: #002280;
-  font-size: 1.1em;
-  font-weight: 400;
+  font-size: 1em;
+  font-weight: 700;
   padding-top: 0.7em;
 }
 
 .labels {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
   padding: 0.7em 0 1em 0.8em;
   color: #444444;
   max-width: 100%;
@@ -36,6 +41,7 @@
   font-size: 0.9em;
   overflow: hidden;
   margin-right: 0.2em;
+  height: 100%;
 }
 
 .name-id {
