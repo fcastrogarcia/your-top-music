@@ -3,18 +3,21 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArtistCard } from "./ArtistCard";
 import { TrackCard } from "./TrackCard";
 import { DataContext } from "../../context/DataContext";
+import "../styles/Tabs.css";
 
 export default ({ term }) => {
   const { type } = useContext(DataContext);
+
+  console.log(term);
   return (
-    <Container fluid>
+    <Container fluid className="tab-container">
       <Row>
         {term.map((item, index) => (
           <Col key={index.toString()} xs={12} lg={6} xl={4} md={6} sm={12}>
             {type === "artists" ? (
-              <ArtistCard cardData={item} index={index + 1} />
+              <ArtistCard {...item} index={index + 1} />
             ) : (
-              <TrackCard cardData={item} index={index + 1} />
+              <TrackCard {...item} index={index + 1} />
             )}
           </Col>
         ))}

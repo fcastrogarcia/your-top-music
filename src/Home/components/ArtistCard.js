@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
+import LazyLoad from "react-lazyload";
 import "../styles/Card.css";
 
-export const ArtistCard = ({ cardData, index }) => {
-  let { name, images, genres } = cardData;
-  genres = genres.slice(0, 3).join(", ");
+export const ArtistCard = ({ name, images, genres, index }) => {
+  genres = genres.slice(0, 4).join(", ");
   return (
     <Fragment>
       <div className="card">
@@ -11,9 +11,11 @@ export const ArtistCard = ({ cardData, index }) => {
           <p>{index}</p>
         </span>
         <span className="img-container">
-          <img src={images[2].url} className="card-image" alt="img" />
+          <LazyLoad>
+            <img src={images[2].url} className="card-image" alt="img" />
+          </LazyLoad>
         </span>
-        <div className="labels">
+        <div className="labels artists">
           <p className="name-id">{name}</p>
           <p>{genres}</p>
         </div>

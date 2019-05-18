@@ -5,13 +5,18 @@ Falta:
 
 futuro:
 -reproductor en hover state
--tarjeta de "now playing"
+-tarjeta de "now playing" / poner el link a spotify acá quizás
 -recently played
 
 falta
--spinner on image loading
--animaciones pestañas
 -animación dropdown menu
--fallback image en user display
+-arreglar ubicación de dropdown menu en userdisplay
 -animación de salida en navbar
 -smooth scrolling
+-button para volver al inicio desde abajo
+-hacer que en mobile la card resizee a su tamaño original cuando se le hace click
+-cambiar nombre de contexto a store
+-poner fallback image!!!
+-hacer otro provider para el state de las canciones
+-handelear el preview_url=null, oops! no preview, open in spotify?
+-handelear la finalización de la reproducción y devolver a play el icon

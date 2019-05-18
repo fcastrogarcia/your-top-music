@@ -7,7 +7,8 @@ const LoginButton = () => {
 
   const handleClick = () => {
     setLoaded(!loaded);
-    const redirect = (window.location = "http://192.168.0.50:8888/login");
+    const redirect = (window.location =
+      "https://spotify-project-backend.herokuapp.com/login");
     return redirect;
   };
 

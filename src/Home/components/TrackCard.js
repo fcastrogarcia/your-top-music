@@ -1,15 +1,18 @@
 import React, { Fragment } from "react";
+import Player from "./Player";
+import LazyLoad from "react-lazyload";
 import "../styles/Card.css";
 
-export const TrackCard = ({ cardData, index }) => {
-  var { name, album } = cardData;
-
+export const TrackCard = ({ name, album, preview_url, index }) => {
   return (
     <Fragment>
       <div className="card">
         <p className="index">{index}</p>
         <span className="img-container">
-          <img src={album.images[1].url} className="card-image" alt="img" />
+          <LazyLoad height="100%">
+            <img src={album.images[1].url} className="card-image" alt="img" />
+          </LazyLoad>
+          <Player src={preview_url} index={index} />
         </span>
         <div className="labels">
           <p className="name-id" id="name-id-tracks">
@@ -24,5 +27,3 @@ export const TrackCard = ({ cardData, index }) => {
     </Fragment>
   );
 };
-
-// {genres.map(genre => genre)}

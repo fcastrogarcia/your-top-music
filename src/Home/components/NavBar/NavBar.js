@@ -9,7 +9,7 @@ export default props => {
     <Container fluid>
       <Row>
         <Col lg={6} sm={6} xs={12} className="tab-toggler-col">
-          <TabToggler tabs={props} />
+          <TabToggler {...props} />
         </Col>
         <Col lg={6} md={6} sm={6} xs={12}>
           <TypeToggler />
