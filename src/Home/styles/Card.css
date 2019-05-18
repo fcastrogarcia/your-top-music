@@ -1,13 +1,25 @@
 .card {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   height: 7em;
-  padding: 0em;
   margin: 0.2em 0 0.2em 0;
-  transition: all 200ms ease-out;
-  border-radius: 0;
+  transition: all 220ms ease-out;
   border-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-color: white;
+  height: 9.5em;
+  max-height: auto;
+}
+.card:hover .labels {
+  justify-content: space-around;
+}
+.card:hover > .img-container {
+  height: auto;
 }
 .img-container {
   height: 100%;
@@ -31,21 +43,29 @@
 }
 
 .labels {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: space-between; */
-  padding: 0.7em 0 1em 0.8em;
+  justify-content: space-between;
+  padding: 0.6em 0 0 0.8em;
   color: #444444;
   max-width: 100%;
-  line-height: 0.9em;
+  width: 100%;
   font-size: 0.9em;
-  overflow: hidden;
   margin-right: 0.2em;
-  height: 100%;
+  height: auto;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+  /* background: cyan; */
+}
+.artists {
+  justify-content: space-around;
+}
+.labels > p {
+  height: auto;
+  line-height: 100%;
 }
 
 .name-id {
-  line-height: 1.1em;
   color: #002280;
   font-weight: 700;
   font-size: 1.2em;
@@ -53,4 +73,59 @@
 }
 #name-id-tracks {
   font-size: 1em;
+}
+#player {
+  display: none;
+}
+.card:hover #player {
+  display: inline;
+}
+
+.overlay-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #444444;
+  position: absolute;
+  bottom: 0;
+  left: 2em;
+  height: 100%;
+  width: 6.5em;
+  opacity: 0.5;
+  transition: all 0.2s ease-out;
+}
+.fas.fa-play,
+.fas.fa-pause {
+  color: rgba(127, 255, 212, 1);
+  font-size: 2.5em;
+  position: absolute;
+  bottom: 0;
+  top: 1.5em;
+  left: 1.65em;
+  text-align: center;
+  height: auto;
+  transition: all 0.1s ease-out;
+}
+.fas.fa-play::before,
+.fas.fa-pause::before {
+  cursor: pointer;
+}
+#play-icon:active {
+  transform: scale(0.9);
+}
+
+.card:hover .overlay-player > i {
+  opacity: 1;
+}
+@media only screen and (max-width: 767px) {
+  .card {
+    margin: 0.4em 0 0.4em 0;
+  }
+  .card:hover {
+    height: 10.5em;
+  }
+
+  #play-icon {
+    top: 1.6em;
+  }
 }

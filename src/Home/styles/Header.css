@@ -5,9 +5,8 @@
 }
 .image {
   margin: 1.2em 1.2em 1.2em 0.3em;
-  width: 3em;
+  width: 2.3em;
   height: auto;
-  border: 1.5px solid #002280;
   box-shadow: 5px 15px 20px -15px rgba(0, 0, 0, 0.3),
     0 85px 60px -25px rgba(0, 0, 0, 0.1);
 }
