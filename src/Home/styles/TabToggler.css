@@ -40,7 +40,6 @@
   opacity: 0.5;
   animation: slide 0.4s ease-out;
 }
-
 @keyframes slide {
   from {
     width: 0%;
@@ -66,6 +65,7 @@
   .tab-toggler-col {
     position: fixed;
     background: white;
+    padding: 0;
     bottom: 0;
     z-index: 1;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -76,7 +76,4 @@
     justify-content: space-around;
     width: 100%;
   }
-  /* .tab-overlay {
-    height: 4em;
-  } */
 }
