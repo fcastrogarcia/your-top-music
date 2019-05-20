@@ -9,8 +9,12 @@ export const TrackCard = ({ name, album, preview_url, index }) => {
       <div className="card">
         <p className="index">{index}</p>
         <span className="img-container">
-          <LazyLoad height="100%">
-            <img src={album.images[1].url} className="card-image" alt="img" />
+          <LazyLoad>
+            <img
+              src={album.images[1].url}
+              className="card-image"
+              alt="cover-art"
+            />
           </LazyLoad>
           <Player src={preview_url} index={index} />
         </span>

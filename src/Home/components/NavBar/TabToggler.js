@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 export default ({ tab, setTab }) => {
-  const handleClick = i => () => {
+  const tabSelector = i => () => {
     window.scrollTo(0, 0);
     setTab(i);
   };
@@ -10,21 +10,21 @@ export default ({ tab, setTab }) => {
       <ul className="navbar">
         <li
           className={tab === 1 ? "tab-active" : "tab"}
-          onClick={handleClick(1)}
+          onClick={tabSelector(1)}
         >
           <span>All-time</span>
           <span className={tab === 1 ? "tab-overlay" : ""} />
         </li>
         <li
           className={tab === 2 ? "tab-active" : "tab"}
-          onClick={handleClick(2)}
+          onClick={tabSelector(2)}
         >
           <span>Six Months</span>
           <span className={tab === 2 ? "tab-overlay" : ""} />
         </li>
         <li
           className={tab === 3 ? "tab-active" : "tab"}
-          onClick={handleClick(3)}
+          onClick={tabSelector(3)}
         >
           <span>Last Month</span>
           <span className={tab === 3 ? "tab-overlay" : ""} />
