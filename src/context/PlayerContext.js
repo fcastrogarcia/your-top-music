@@ -4,14 +4,14 @@ export const PlayerContext = createContext();
 
 export function PlayerProvider(props) {
   const initialState = {
-    currentTrack: "",
+    trackPlaying: "",
     isPlaying: false
   };
   const reducer = (state, action) => {
     switch (action.type) {
       case "PLAY":
         return {
-          currentTrack: action.payload,
+          trackPlaying: action.payload,
           isPlaying: true
         };
       case "PAUSE":

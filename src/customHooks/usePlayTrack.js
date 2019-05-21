@@ -3,7 +3,7 @@ import { PlayerContext } from "../context/PlayerContext";
 
 export default (id, src) => {
   const { track, dispatch } = useContext(PlayerContext);
-  const { currentTrack, isPlaying } = track;
+  const { trackPlaying, isPlaying } = track;
   const state = {
     track,
     dispatch
@@ -13,11 +13,12 @@ export default (id, src) => {
   }
   const playPause = () => {
     const audio = document.getElementById(id);
-    if (currentTrack === id && isPlaying === true) {
+
+    if (trackPlaying === id && isPlaying === true) {
       return audio.play();
-    } else if (currentTrack === id && isPlaying === false) {
+    } else if (trackPlaying === id && isPlaying === false) {
       return audio.pause();
-    } else if (currentTrack !== id) {
+    } else if (trackPlaying !== id) {
       return audio.pause();
     }
   };

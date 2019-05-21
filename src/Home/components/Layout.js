@@ -9,7 +9,6 @@ import "../styles/Tabs.css";
 
 export default ({ term }) => {
   const { type } = useContext(DataContext);
-
   console.log(term);
   return (
     <PlayerProvider>
