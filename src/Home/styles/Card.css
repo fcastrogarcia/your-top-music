@@ -11,17 +11,9 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
 
-.card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-  border-color: white;
-  height: 9.5em;
-  max-height: auto;
-}
-.card:hover .labels {
-  justify-content: space-around;
-}
-.card:hover > .img-container {
-  height: auto;
+.card:hover > .card-image {
+  transform: scale(1.1);
+  transition: all 0.2s ease;
 }
 .img-container {
   height: 100%;
@@ -102,7 +94,7 @@
   font-size: 2.5em;
   position: absolute;
   bottom: 0;
-  top: 1.5em;
+  top: 1em;
   left: 1.65em;
   text-align: center;
   height: auto;
@@ -147,6 +139,13 @@
   font-weight: 400;
 }
 
+.close-error {
+  position: absolute;
+  bottom: 0;
+  right: 1.5em;
+  cursor: pointer;
+}
+
 @keyframes slide-down {
   from {
     width: 0%;
@@ -161,6 +160,9 @@
   }
   .card:hover {
     height: 10.5em;
+  }
+  .card:hover .labels {
+    justify-content: space-around;
   }
 
   #play-icon {

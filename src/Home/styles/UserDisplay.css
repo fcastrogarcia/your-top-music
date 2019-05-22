@@ -11,6 +11,9 @@
   cursor: pointer;
   color: #002280;
 }
+.display-name:active #caret {
+  color: rgba(127, 255, 212, 1);
+}
 .user-container {
   float: right;
 }
@@ -18,10 +21,11 @@
   position: absolute;
   width: 9.5em;
   height: auto;
-  right: 13.2em;
-  top: 3.5em;
+  right: 4.15em;
+  top: 4em;
   z-index: 2;
   background-color: white;
+  transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
 .user-dropdown > span {
@@ -30,9 +34,8 @@
   text-align: left;
   font-size: 1em;
   height: auto;
-  padding: 0.5em 0.5em 0.5em 0.5em;
+  padding: 0.5em 0.5em 0.5em 0.7em;
   font-weight: 700;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
 }
 .user-dropdown > span > a {
   text-decoration: none;
@@ -48,9 +51,12 @@
 }
 @media only screen and (max-width: 767px) {
   .user-dropdown {
-    right: 4.9em;
-    top: 3em;
+    right: 0.8em;
+    top: 4em;
     width: 8.5em;
     font-size: 1.2em;
+  }
+  .user-dropdown:before {
+    left: 4.5em;
   }
 }

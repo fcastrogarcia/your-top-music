@@ -1,4 +1,5 @@
 .tab-container {
+  margin-bottom: 6.5em;
   animation: fade-in 0.2s ease;
 }
 @keyframes fade-in {
