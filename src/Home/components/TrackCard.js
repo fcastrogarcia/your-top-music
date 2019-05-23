@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Player from "./Player";
-import Equalizer from "./EqualizerOverlay";
+import PlayingOverlay from "./PlayingOverlay";
 import ErrorOverlay from "./ErrorOverlay";
 import LazyLoad from "react-lazyload";
 import "../styles/Card.css";
@@ -30,7 +30,7 @@ export const TrackCard = ({
     <div className="card">
       {error && <ErrorOverlay src={external_urls} />}
       {isPlaying && trackPlaying === trackId && (
-        <Equalizer trackId={trackId} src={external_urls.spotify} />
+        <PlayingOverlay trackId={trackId} src={external_urls.spotify} />
       )}
       <p className="index">{index}</p>
       <span className="img-container">

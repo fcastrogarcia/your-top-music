@@ -14,12 +14,15 @@ export default function Home() {
 
   //custom hooks
   useTokenParser();
-  const { isLoading } = useFetchData();
+  const { isLoading, error } = useFetchData();
 
   return (
     <Fragment>
+      {error && (
+        <span className="spinner-body">Oops! something went wrong...</span>
+      )}
       {isLoading && <BarLoader />}
-      {!isLoading && (
+      {!isLoading && !error && (
         <Fragment>
           <Header />
           <NavBar setTab={setTab} tab={tab} />

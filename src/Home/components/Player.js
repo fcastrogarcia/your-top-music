@@ -20,7 +20,11 @@ export default ({ src, trackId, error, setError }) => {
   };
 
   return (
-    <div id="player">
+    <div
+      className={
+        isPlaying && trackPlaying === trackId ? "player is-playing" : "player"
+      }
+    >
       {src !== null && !isPlaying && <span className="overlay-player" />}
       {src !== null && isPlaying && trackPlaying !== trackId && (
         <span className="overlay-player" />

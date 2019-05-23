@@ -1,4 +1,4 @@
-i-amp-video-eq {
+eq-container {
   align-items: flex-end;
   display: flex;
   position: absolute;
@@ -10,15 +10,15 @@ i-amp-video-eq {
   opacity: 0.8;
 }
 
-i-amp-video-eq .-amp-video-eq-col {
+eq-container .eq-col {
   flex: 1;
   position: relative;
   height: 100%;
   margin-right: 1px;
 }
 
-i-amp-video-eq .-amp-video-eq-col div {
-  animation-name: amp-video-eq-animation;
+eq-container .eq-col div {
+  animation-name: eq-animation;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -30,39 +30,39 @@ i-amp-video-eq .-amp-video-eq-col div {
   will-change: transform;
 }
 
-.-amp-video-eq-1-1 {
+.eq-1-1 {
   animation-duration: 0.3s;
 }
 
-.-amp-video-eq-1-2 {
+.eq-1-2 {
   animation-duration: 0.45s;
 }
 
-.-amp-video-eq-2-1 {
+.eq-2-1 {
   animation-duration: 0.5s;
 }
 
-.-amp-video-eq-2-2 {
+.eq-2-2 {
   animation-duration: 0.4s;
 }
 
-.-amp-video-eq-3-1 {
+.eq-3-1 {
   animation-duration: 0.3s;
 }
 
-.-amp-video-eq-3-2 {
+.eq-3-2 {
   animation-duration: 0.35s;
 }
 
-.-amp-video-eq-4-1 {
+.eq-4-1 {
   animation-duration: 0.4s;
 }
 
-.-amp-video-eq-4-2 {
+.eq-4-2 {
   animation-duration: 0.25s;
 }
 
-@keyframes amp-video-eq-animation {
+@keyframes eq-animation {
   0% {
     transform: translateY(100%);
   }

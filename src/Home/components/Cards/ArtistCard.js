@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import LazyLoad from "react-lazyload";
-import "../styles/Card.css";
+import "../../styles/Card.css";
 
 export const ArtistCard = ({ name, images, genres, index }) => {
   genres = genres.slice(0, 4).join(", ");

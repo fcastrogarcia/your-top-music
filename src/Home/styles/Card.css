@@ -69,10 +69,13 @@
 #name-id-tracks {
   font-size: 1em;
 }
-#player {
+.player {
   display: none;
 }
-.card:hover #player {
+.is-playing {
+  display: inline;
+}
+.card:hover .player {
   display: inline;
 }
 
@@ -162,8 +165,7 @@
   .card:hover .labels {
     justify-content: space-around;
   }
-
-  #play-icon {
+  .card:hover #play-icon {
     top: 1.6em;
   }
 }

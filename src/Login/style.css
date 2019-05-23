@@ -39,7 +39,6 @@
     width 700ms ease-in-out, box-shadow 300ms ease-out, transform 200ms ease-out;
 }
 .button:hover {
-  /* padding: .7em 1.2em .7em 1.2em; */
   background: #1dc954;
   outline: none;
   box-shadow: 5px 15px 20px -15px rgba(0, 0, 0, 0.5),

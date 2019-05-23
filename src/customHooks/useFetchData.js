@@ -8,7 +8,7 @@ export default () => {
   const { setData } = useContext(DataContext);
   //local state
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,31 +19,33 @@ export default () => {
       }
       const apiRes = await Promise.all(
         endpoints.map(endpoint => spotify(token)(endpoint))
-      ).catch(error => console.log(error));
-
-      const res = apiRes.map((res, index) =>
-        index === 0 ? res.data : res.data.items
-      );
-      setData({
-        userData: res[0],
-        artists: {
-          short_term: res[1],
-          medium_term: res[2],
-          long_term: res[3]
-        },
-        tracks: {
-          short_term: res[4],
-          medium_term: res[5],
-          long_term: res[6]
-        }
-      });
+      ).catch(error => setError(true));
+      if (!error) {
+        const res = apiRes.map((res, index) =>
+          index === 0 ? res.data : res.data.items
+        );
+        setData({
+          userData: res[0],
+          artists: {
+            short_term: res[1],
+            medium_term: res[2],
+            long_term: res[3]
+          },
+          tracks: {
+            short_term: res[4],
+            medium_term: res[5],
+            long_term: res[6]
+          }
+        });
+      }
 
       setIsLoading(false);
     };
     dataFetch();
   }, []);
   const state = {
-    isLoading
+    isLoading,
+    error
   };
 
   return state;
