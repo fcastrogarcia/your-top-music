@@ -19,7 +19,7 @@ const LoginButton = () => {
         onClick={handleClick}
       >
         {loaded && <span className="button-text">Connect </span>}
-        {loaded && <i class="fab fa-spotify" />}
+        {loaded && <i className="fab fa-spotify" />}
         {!loaded && <ScaleLoader color={"#FFFFFF"} height={"22"} />}
       </button>
     </Fragment>

@@ -13,7 +13,6 @@ export default (id, src) => {
   }
   const playPause = () => {
     const audio = document.getElementById(id);
-
     if (trackPlaying === id && isPlaying === true) {
       return audio.play();
     } else if (trackPlaying === id && isPlaying === false) {

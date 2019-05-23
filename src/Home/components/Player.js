@@ -4,13 +4,12 @@ import usePlayTrack from "../../customHooks/usePlayTrack";
 export default ({ src, trackId, error, setError }) => {
   const { track, dispatch } = usePlayTrack(trackId, src);
   const { trackPlaying, isPlaying } = track;
-  const { isError } = error;
 
   const handlePlay = () => {
     if (src === null) {
-      setError({ isError: true, trackId: trackId });
+      setError(true);
       setTimeout(() => {
-        setError({ ...error, isError: false });
+        setError(false);
       }, 4000);
     } else {
       dispatch({ type: "PLAY", payload: trackId });
@@ -26,18 +25,18 @@ export default ({ src, trackId, error, setError }) => {
       {src !== null && isPlaying && trackPlaying !== trackId && (
         <span className="overlay-player" />
       )}
-      {isError === false && src === null && <span className="overlay-player" />}
-      {!isPlaying && isError === false && (
+      {error === false && src === null && <span className="overlay-player" />}
+      {!isPlaying && error === false && (
         <i className="fas fa-play" id="play-icon" onClick={handlePlay} />
       )}
-      {isPlaying && trackPlaying !== trackId && isError === false && (
+      {isPlaying && trackPlaying !== trackId && error === false && (
         <i className="fas fa-play" id="play-icon" onClick={handlePlay} />
       )}
       {isPlaying && trackPlaying === trackId && src !== null && (
         <i className="fas fa-pause" id="play-icon" onClick={handlePause} />
       )}
       {src !== null && (
-        <audio id={trackId} src={src} preload="metada " onEnded={handlePause} />
+        <audio id={trackId} src={src} preload="none" onEnded={handlePause} />
       )}
     </div>
   );
