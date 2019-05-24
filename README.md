@@ -7,7 +7,7 @@
 -hacer que en mobile la card resizee a su tamaño original cuando se le hace click<br>
 -poner fallback image!!!<br>
 -hacer que cuando se scrollea en mobile un reproductor siga sticky así se puede parar el tema en cualquuier lado <br>
--arreglar el refresh token
+-arreglar el refresh token<br>
 <strong>futuro</strong><br>
 -recently played<br>
 -hacer que la canción se vuelva a recargar si se hace play en otra .load()<br>

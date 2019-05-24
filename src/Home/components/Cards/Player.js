@@ -1,5 +1,5 @@
 import React from "react";
-import usePlayTrack from "../../customHooks/usePlayTrack";
+import usePlayTrack from "../../../customHooks/usePlayTrack";
 
 export default ({ src, trackId, error, setError }) => {
   const { track, dispatch } = usePlayTrack(trackId, src);

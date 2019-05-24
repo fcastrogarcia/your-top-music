@@ -3,8 +3,8 @@ import Player from "./Player";
 import PlayingOverlay from "./PlayingOverlay";
 import ErrorOverlay from "./ErrorOverlay";
 import LazyLoad from "react-lazyload";
-import "../styles/Card.css";
-import { PlayerContext } from "../../context/PlayerContext";
+import "../../styles/Card.css";
+import { PlayerContext } from "../../../context/PlayerContext";
 
 export const TrackCard = ({
   name,

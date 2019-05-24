@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArtistCard } from "./Cards/ArtistCard";
-import { TrackCard } from "./TrackCard";
+import { TrackCard } from "./Cards/TrackCard";
 import { DataContext } from "../../context/DataContext";
 import { PlayerProvider } from "../../context/PlayerContext";
 

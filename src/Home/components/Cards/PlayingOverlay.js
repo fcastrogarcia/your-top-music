@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { BeatLoader } from "react-spinners";
-import Equalizer from './Equalizer'
-import "../styles/Equalizer.css";
+import Equalizer from "./Equalizer";
+import "../../styles/Equalizer.css";
 
 export default ({ trackId, src }) => {
   const [playing, setPlaying] = useState(false);
