@@ -1,6 +1,7 @@
 import React, { useContext, Fragment } from "react";
 import Layout from "../Layout";
 import { DataContext } from "../../../context/DataContext";
+import { PlayerProvider } from "../../../context/PlayerContext";
 
 export default () => {
   const { data, type } = useContext(DataContext);
@@ -8,9 +9,11 @@ export default () => {
   const short_term_tracks = data.tracks.short_term;
   return (
     <Fragment>
-      <Layout
-        term={type === "artists" ? short_term_artists : short_term_tracks}
-      />
+      <PlayerProvider>
+        <Layout
+          term={type === "artists" ? short_term_artists : short_term_tracks}
+        />
+      </PlayerProvider>
     </Fragment>
   );
 };

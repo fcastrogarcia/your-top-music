@@ -10,7 +10,12 @@
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
-
+.playing {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
 .card:hover > .card-image {
   transform: scale(1.1);
   transition: all 0.2s ease;
@@ -167,5 +172,8 @@
   }
   .card:hover #play-icon {
     top: 1.6em;
+  }
+  .playing {
+    bottom: 3.5em;
   }
 }

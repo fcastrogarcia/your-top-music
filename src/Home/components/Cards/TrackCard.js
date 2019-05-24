@@ -17,7 +17,7 @@ export const TrackCard = ({
   const { track } = useContext(PlayerContext);
 
   const { trackPlaying, isPlaying } = track;
-  const trackId = `track${index}`;
+  const trackId = index;
   const trackName = name.length > 75 ? name.slice(0, 75).concat("...") : name;
   const playerProps = {
     error,

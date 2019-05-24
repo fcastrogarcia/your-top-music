@@ -38,7 +38,6 @@ export default () => {
               Open in Spotify
             </a>
           </span>
-          <span id="sign-out">Sign Out</span>
         </span>
       )}
     </div>

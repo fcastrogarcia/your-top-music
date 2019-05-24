@@ -23,7 +23,7 @@ export default function Home() {
           Credentials have expired. Please, login again.
         </span>
       )}
-      {isLoading && <BarLoader />}
+      {isLoading && !error && <BarLoader />}
       {!isLoading && !error && (
         <Fragment>
           <Header />
