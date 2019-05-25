@@ -22,6 +22,7 @@
   line-height: 3.2em;
   font-size: 2.2em;
   color: #002280;
+  text-align: center;
 }
 @media only screen and (max-width: 767px) {
   .user-container > .display-name > p {
@@ -29,5 +30,9 @@
   }
   .spinner-body {
     font-size: 2.5em;
+  }
+  .error {
+    font-size: 1.5em;
+    padding: 1em;
   }
 }

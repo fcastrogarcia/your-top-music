@@ -1,14 +1,17 @@
-<h1>Spotify Project</h1>
+<h1>Your top music</h1>
+Web application that let users check on their most listened artists and tracks with different time ranges signing in with their Spotify account. A sample of every track is provided for listening.<br>
+Check it on <a href='https://yourtopmusic.netlify.com' target='_blank'>yourtopmusic.netlify.com</a>
 
-<strong>pendiente</strong><br>
--animación de salida en navbar<br>
--smooth scrolling<br>
--button para volver al inicio desde abajo<br>
--hacer que en mobile la card resizee a su tamaño original cuando se le hace click<br>
--poner fallback image!!!<br>
--hacer que cuando se scrollea en mobile un reproductor siga sticky así se puede parar el tema en cualquuier lado <br>
--arreglar el refresh token<br>
-<strong>futuro</strong><br>
--recently played<br>
--hacer que la canción se vuelva a recargar si se hace play en otra .load()<br>
--controlador de volumen<br>
+<h2>Development</h2>
+Bootstraped with <a href='https://facebook.github.io/create-react-app/docs/getting-started'>Create React App</a><br>
+For accounts authentication development follow <a href='https://github.com/spotify/web-api-auth-examples' target='_blank'>Spotify examples</a><br>
+For app registration check <a href='https://developer.spotify.com/dashboard/' target='_blank'>Spotify dashboard</a>. Whitelist redirect_uri as http://localhost:8888/callback.
+
+<h2>Spotify Web API</h2>
+<ul>
+<li><a href='https://developer.spotify.com/documentation/web-api/reference/users-profile/get-current-users-profile/'>Current User's Profile</a></li>
+<li><a href='https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks' target='_blank'>User's top artists and tracks</a></li>
+</ul>
+<h2>Deployment</h2>
+Backend deployed with Heroku<br>
+Frontend deployed with Netlify

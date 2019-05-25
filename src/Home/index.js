@@ -19,8 +19,9 @@ export default function Home() {
   return (
     <Fragment>
       {error && (
-        <span className="spinner-body">
-          Credentials have expired. Please, login again.
+        <span className="spinner-body error">
+          Credentials have expired.
+          <br /> Please, login again.
         </span>
       )}
       {isLoading && !error && <BarLoader />}

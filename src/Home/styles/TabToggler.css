@@ -21,9 +21,6 @@
   color: #002280;
 }
 .tab-active {
-  position: relative;
-  color: #002280;
-  font-size: 1.1em;
   font-weight: 700;
 }
 
@@ -59,18 +56,24 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .tab-active {
-    font-size: 1.1em;
-  }
   .tab {
-    font-size: 1.1em;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .navbar {
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
   }
   .navbar > li {
     margin: 0;
-    padding: 0.2em;
+    padding: 1.4em 0;
     height: 2em;
-    width: 5.6em;
+    width: 33%;
   }
+
   .tab-toggler-col {
     position: fixed;
     background: white;
@@ -78,11 +81,5 @@
     bottom: 0;
     z-index: 1;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  }
-  .navbar {
-    margin: 0.2em 0 0.2em 0;
-    height: 100%;
-    justify-content: space-around;
-    width: 100%;
   }
 }

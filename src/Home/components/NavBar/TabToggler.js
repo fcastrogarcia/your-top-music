@@ -9,24 +9,24 @@ export default ({ tab, setTab }) => {
     <Fragment>
       <ul className="navbar">
         <li
-          className={tab === 1 ? "tab-active" : "tab"}
+          className={tab === 1 ? "tab tab-active" : "tab"}
           onClick={tabSelector(1)}
         >
-          <span>All-time</span>
+          All-time
           <span className={tab === 1 ? "tab-overlay" : ""} />
         </li>
         <li
-          className={tab === 2 ? "tab-active" : "tab"}
+          className={tab === 2 ? "tab tab-active" : "tab"}
           onClick={tabSelector(2)}
         >
-          <span>Six Months</span>
+          Six Months
           <span className={tab === 2 ? "tab-overlay" : ""} />
         </li>
         <li
-          className={tab === 3 ? "tab-active" : "tab"}
+          className={tab === 3 ? "tab tab-active" : "tab"}
           onClick={tabSelector(3)}
         >
-          <span>Last Month</span>
+          Last Month
           <span className={tab === 3 ? "tab-overlay" : ""} />
         </li>
       </ul>
