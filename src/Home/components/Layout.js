@@ -23,7 +23,11 @@ export default ({ term }) => {
             xl={4}
             md={6}
             sm={12}
-            className={isPlaying && trackPlaying === index + 1 ? "playing" : ""}
+            className={
+              isPlaying && trackPlaying === index + 1 && type === "tracks"
+                ? "playing"
+                : ""
+            }
           >
             {type === "artists" ? (
               <ArtistCard {...item} index={index + 1} />
