@@ -5,6 +5,7 @@
   justify-content: flex-end;
   height: 100%;
   margin: 0 auto;
+  margin-bottom: 1em;
 }
 
 .selector {
@@ -28,7 +29,7 @@
   text-decoration: none;
   text-align: center;
   display: block;
-  margin-left: 0em;
+  margin-left: 0.3em;
   font-size: 1.1em;
   font-weight: 700;
   color: #002280;
@@ -69,6 +70,10 @@
     margin-top: 0.5em;
   }
   .text-slider-container {
-    height: 1.15em;
+    height: 1.3em;
+    line-height: 1.2em;
+  }
+  .toggle {
+    margin-top: -1.08em;
   }
 }

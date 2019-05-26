@@ -78,7 +78,9 @@
 #artists {
   font-size: 1.1em;
 }
-
+#genres-text {
+  line-height: 1.3;
+}
 .player {
   display: none;
 }

@@ -19,7 +19,7 @@ export const ArtistCard = ({ name, images, genres, index }) => {
           <p className="name-id" id="artists">
             {name}
           </p>
-          <p>{genres}</p>
+          <p id="genres-text">{genres}</p>
         </div>
       </div>
     </Fragment>

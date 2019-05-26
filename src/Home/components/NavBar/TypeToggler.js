@@ -18,16 +18,15 @@ export default () => {
           <span>
             <i className="fas fa-sort" />
           </span>
-          <p>Top</p>
           <div className="text-slider-container">
             <span
               className={
                 type === "tracks" ? "text-slider toggle" : "text-slider"
               }
             >
-              artists
+              Artists
             </span>
-            <span> tracks</span>
+            <span> Tracks</span>
           </div>
         </span>
       </div>
