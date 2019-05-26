@@ -33,7 +33,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(127, 255, 212, 1);
+  background-color: aquamarine;
   opacity: 0.5;
   animation: slide 0.4s ease-out;
   -webkit-animation: slide 0.4s ease-out;

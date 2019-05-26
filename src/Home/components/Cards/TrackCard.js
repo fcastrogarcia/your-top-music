@@ -46,7 +46,9 @@ export const TrackCard = ({
         <Player {...playerProps} />
       </span>
       <div className="labels">
-        <p className="name-id">{trackName}</p>
+        <p className="name-id" id="name-id-tracks">
+          {trackName}
+        </p>
         <p>{album.artists[0].name}</p>
         <p>
           <i>{albumName}</i>
