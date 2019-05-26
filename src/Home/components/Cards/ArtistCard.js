@@ -16,7 +16,9 @@ export const ArtistCard = ({ name, images, genres, index }) => {
           </LazyLoad>
         </span>
         <div className="labels artists">
-          <p className="name-id">{name}</p>
+          <p className="name-id" id="artists">
+            {name}
+          </p>
           <p>{genres}</p>
         </div>
       </div>

@@ -5,10 +5,11 @@
   flex-direction: row;
   justify-content: center;
   height: 7em;
-  margin: 0.3em 0 0.3em 0;
+  margin: 0.3em 0;
   transition: all 220ms ease-out;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.027em;
 }
 .playing {
   position: sticky;
@@ -60,20 +61,24 @@
 .artists {
   justify-content: space-around;
 }
-.labels > p {
+.labels p {
   height: auto;
   line-height: 100%;
+  font-size: 0.9em;
 }
-
 .name-id {
   color: #002280;
   font-weight: 700;
   font-size: 1.2em;
   max-width: 100%;
 }
-#name-id-tracks {
-  font-size: 1em;
+.tracks {
+  font-size: 0.9em;
 }
+#artists {
+  font-size: 1.1em;
+}
+
 .player {
   display: none;
 }
@@ -162,7 +167,7 @@
 }
 @media only screen and (max-width: 767px) {
   .card {
-    margin: 0.4em 0 0.4em 0;
+    margin: 0.4em 0;
   }
   .card:hover {
     height: 10.5em;
@@ -175,5 +180,13 @@
   }
   .playing {
     bottom: 3.25em;
+  }
+  #name-id-tracks {
+    font-size: 1em;
+  }
+  .labels > p {
+    height: auto;
+    line-height: 100%;
+    font-size: 1em;
   }
 }

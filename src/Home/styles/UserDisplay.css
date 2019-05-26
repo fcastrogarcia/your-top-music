@@ -5,6 +5,7 @@
   display: inline;
   font-weight: 700;
   margin: 0 0 0 0.2em;
+  letter-spacing: 0.03em;
 }
 .display-name p,
 #caret {

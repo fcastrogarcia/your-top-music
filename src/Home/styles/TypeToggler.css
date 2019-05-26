@@ -36,9 +36,9 @@
 
 .text-slider-container {
   display: inline-block;
-  height: 1.3em;
+  height: 1.27em;
   font-size: 1.1em;
-  line-height: 1.3em;
+  line-height: 1.15em;
   overflow: hidden;
 }
 .text-slider-container,
@@ -50,7 +50,7 @@
 }
 
 .toggle {
-  margin-top: -1.15em;
+  margin-top: -1.03em;
 }
 .selector:hover > span > i {
   color: rgba(127, 255, 212, 1);
@@ -66,6 +66,9 @@
     font-size: 1.3em;
   }
   .selector p {
-    margin-top: 0.62em;
+    margin-top: 0.5em;
+  }
+  .text-slider-container {
+    height: 1.15em;
   }
 }
