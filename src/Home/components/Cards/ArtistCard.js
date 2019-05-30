@@ -11,7 +11,7 @@ export const ArtistCard = ({ name, images, genres, index }) => {
           <p>{index}</p>
         </span>
         <span className="img-container">
-          <LazyLoad>
+          <LazyLoad once>
             <img src={images[2].url} className="card-image" alt="artist" />
           </LazyLoad>
         </span>

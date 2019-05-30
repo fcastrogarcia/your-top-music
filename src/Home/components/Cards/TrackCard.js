@@ -36,7 +36,7 @@ export const TrackCard = ({
       )}
       <p className="index">{index}</p>
       <span className="img-container">
-        <LazyLoad>
+        <LazyLoad once>
           <img
             src={album.images[1].url}
             className="card-image"
