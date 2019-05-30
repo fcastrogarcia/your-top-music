@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import { PlayerProvider } from "../context/PlayerContext";
 import useFetchData from "../customHooks/useFetchData";
 import useTokenParser from "../customHooks/useParseToken";
 //components
@@ -28,11 +27,9 @@ export default function Home() {
         <Fragment>
           <Header />
           <NavBar setTab={setTab} tab={tab} />
-          <PlayerProvider>
-            {tab === 1 && <LongTermTab />}
-            {tab === 2 && <MediumTermTab />}
-            {tab === 3 && <ShortTermTab />}
-          </PlayerProvider>
+          {tab === 1 && <LongTermTab />}
+          {tab === 2 && <MediumTermTab />}
+          {tab === 3 && <ShortTermTab />}
           {/* <PlaylistCreator tab={tab} /> */}
         </Fragment>
       )}
