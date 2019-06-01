@@ -4,11 +4,11 @@ import { ArtistCard } from "./Cards/ArtistCard";
 import { TrackCard } from "./Cards/TrackCard";
 import { DataContext } from "../../context/DataContext";
 import { PlayerContext } from "../../context/PlayerContext";
-
 import "../styles/Tabs.css";
 
 export default ({ term }) => {
-  const { type } = useContext(DataContext);
+  const { store } = useContext(DataContext);
+  const { type } = store;
   const { track } = useContext(PlayerContext);
   const { trackPlaying, isPlaying } = track;
 

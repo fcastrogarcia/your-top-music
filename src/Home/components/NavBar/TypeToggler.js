@@ -5,10 +5,12 @@ import "../../styles/TypeToggler.css";
 
 export default () => {
   //context
-  const { type, setType } = useContext(DataContext);
-
+  const { store, dispatch } = useContext(DataContext);
+  const { type } = store;
   const typeToggler = () => {
-    type === "artists" ? setType("tracks") : setType("artists");
+    type === "artists"
+      ? dispatch({ type: "TYPE", payload: "tracks" })
+      : dispatch({ type: "TYPE", payload: "artists" });
   };
 
   return (

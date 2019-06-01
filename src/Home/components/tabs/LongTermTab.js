@@ -4,7 +4,9 @@ import { DataContext } from "../../../context/DataContext";
 import { PlayerProvider } from "../../../context/PlayerContext";
 
 export default () => {
-  const { data, type } = useContext(DataContext);
+  const { store } = useContext(DataContext);
+  const { data, type } = store;
+
   const long_term_artists = data.artists.long_term;
   const long_term_tracks = data.tracks.long_term;
   return (

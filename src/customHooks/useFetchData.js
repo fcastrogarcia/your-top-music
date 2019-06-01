@@ -5,10 +5,10 @@ import { spotify } from "../services/axios";
 
 export default () => {
   //Context
-  const { setData } = useContext(DataContext);
+  const { store, dispatch } = useContext(DataContext);
+  const { error } = store;
   //local state
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,22 +19,25 @@ export default () => {
       }
       const apiRes = await Promise.all(
         endpoints.map(endpoint => spotify(token)(endpoint))
-      ).catch(error => setError(true));
+      ).catch(error => dispatch({ type: "ERROR", payload: true }));
       if (!error) {
         const res = apiRes.map((res, index) =>
           index === 0 ? res.data : res.data.items
         );
-        setData({
-          userData: res[0],
-          artists: {
-            short_term: res[1],
-            medium_term: res[2],
-            long_term: res[3]
-          },
-          tracks: {
-            short_term: res[4],
-            medium_term: res[5],
-            long_term: res[6]
+        dispatch({
+          type: "DATA",
+          payload: {
+            userData: res[0],
+            artists: {
+              short_term: res[1],
+              medium_term: res[2],
+              long_term: res[3]
+            },
+            tracks: {
+              short_term: res[4],
+              medium_term: res[5],
+              long_term: res[6]
+            }
           }
         });
       }
@@ -44,8 +47,7 @@ export default () => {
     dataFetch();
   }, []);
   const state = {
-    isLoading,
-    error
+    isLoading
   };
 
   return state;

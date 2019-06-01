@@ -6,7 +6,8 @@ import useImageSrc from "../../../customHooks/useImageSrc";
 
 export default () => {
   //Context
-  const { data } = useContext(DataContext);
+  const { store } = useContext(DataContext);
+  const { data } = store;
   const { display_name, external_urls, images } = data.userData;
   const url = external_urls.spotify;
 
