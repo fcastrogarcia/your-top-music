@@ -1,0 +1,66 @@
+.md {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5em;
+  color: rgba(0, 34, 128, 1);
+  font-weight: 700;
+  font-size: 1.2em;
+  background: white;
+  width: 20em;
+  height: 23em;
+  z-index: 2000;
+  border-radius: 2%;
+  animation: slip-in 0.3s ease-out;
+}
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(39, 37, 37, 0.8);
+  transition: all 0.3s;
+  animation: fade-in 0.3s ease-out;
+}
+.md > a > img {
+  width: 15em;
+  max-width: 15em;
+  height: auto;
+}
+.md > a > img:hover {
+  transform: translateY(-1%);
+  transform-style: preserve-3d;
+  transition: all 0.1s ease-out;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.md > button {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background: none;
+  color: rgba(0, 34, 128, 1);
+}
+.md > button > i:hover {
+  transform: scale(1.2);
+}
+
+@keyframes slip-in {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}

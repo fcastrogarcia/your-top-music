@@ -1,0 +1,19 @@
+.create-playlist-label {
+  cursor: pointer;
+  font-weight: 700;
+  color: rgba(0, 34, 128, 1);
+  background: rgba(127, 255, 212, 0.8);
+  position: fixed;
+  right: -8.2em;
+  bottom: 0.5em;
+  padding: 0.5em;
+}
+.create-playlist-label p {
+  display: inline;
+}
+.create-playlist-label:hover {
+  background: rgba(0, 34, 128, 0.8);
+  color: rgba(127, 255, 212, 1);
+  transition: all 0.4s ease-out;
+  right: 0;
+}
