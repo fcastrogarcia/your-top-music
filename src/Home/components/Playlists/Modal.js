@@ -12,7 +12,7 @@ export default ({ setIsOpen, playlistData }) => {
           {loading && <BeatLoader color={"rgba(0, 34, 128, 1)"} />}
           {!loading && (
             <Fragment>
-              <p>Your playlist is ready for you</p>
+              <p>Your new playlist's ready!</p>
               <a
                 href={data.playlist_url}
                 target="_blank"

@@ -10,10 +10,20 @@
 }
 .create-playlist-label p {
   display: inline;
+  text-align: center;
 }
 .create-playlist-label:hover {
   background: rgba(0, 34, 128, 0.8);
   color: rgba(127, 255, 212, 1);
   transition: all 0.4s ease-out;
   right: 0;
+}
+@media only screen and (max-width: 767px) {
+  .create-playlist-label {
+    position: relative;
+    padding: 0.5em;
+    right: 0;
+    bottom: 4em;
+    font-size: 1.2em;
+  }
 }
