@@ -4,6 +4,8 @@ import "../../styles/Card.css";
 
 export const ArtistCard = ({ name, images, genres, index }) => {
   genres = genres.slice(0, 4).join(", ");
+  console.log(images);
+  const imageSrc = images.lenght !== 0 ? images[2].url : null;
   return (
     <Fragment>
       <div className="card">
@@ -11,9 +13,11 @@ export const ArtistCard = ({ name, images, genres, index }) => {
           <p>{index}</p>
         </span>
         <span className="img-container">
-          <LazyLoad once>
-            <img src={images[2].url} className="card-image" alt="artist" />
-          </LazyLoad>
+          {imageSrc && (
+            <LazyLoad once>
+              <img src={imageSrc} className="card-image" alt="artist" />
+            </LazyLoad>
+          )}
         </span>
         <div className="labels artists">
           <p className="name-id" id="artists">

@@ -27,6 +27,7 @@ export const TrackCard = ({
     trackId,
     src: preview_url
   };
+  const imageSrc = album.images.lenght !== 0 ? album.images[1].url : null;
 
   return (
     <div className="card">
@@ -36,13 +37,15 @@ export const TrackCard = ({
       )}
       <p className="index">{index}</p>
       <span className="img-container">
-        <LazyLoad once>
-          <img
-            src={album.images[1].url}
-            className="card-image"
-            alt="cover-art"
-          />
-        </LazyLoad>
+        {imageSrc && (
+          <LazyLoad once>
+            <img
+              src={album.images[1].url}
+              className="card-image"
+              alt="cover-art"
+            />
+          </LazyLoad>
+        )}
         <Player {...playerProps} />
       </span>
       <div className="labels">
