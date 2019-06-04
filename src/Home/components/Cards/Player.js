@@ -6,7 +6,7 @@ export default ({ src, trackId, error, setError }) => {
   const { trackPlaying, isPlaying } = track;
 
   const handlePlay = () => {
-    if (src === null) {
+    if (!src) {
       setError(true);
       setTimeout(() => {
         setError(false);
@@ -25,21 +25,21 @@ export default ({ src, trackId, error, setError }) => {
         isPlaying && trackPlaying === trackId ? "player is-playing" : "player"
       }
     >
-      {src !== null && !isPlaying && <span className="overlay-player" />}
-      {src !== null && isPlaying && trackPlaying !== trackId && (
+      {src && !isPlaying && <span className="overlay-player" />}
+      {src && isPlaying && trackPlaying !== trackId && (
         <span className="overlay-player" />
       )}
-      {error === false && src === null && <span className="overlay-player" />}
-      {!isPlaying && error === false && (
+      {!error && !src && <span className="overlay-player" />}
+      {!isPlaying && !error && (
         <i className="fas fa-play" id="play-icon" onClick={handlePlay} />
       )}
-      {isPlaying && trackPlaying !== trackId && error === false && (
+      {isPlaying && trackPlaying !== trackId && !error && (
         <i className="fas fa-play" id="play-icon" onClick={handlePlay} />
       )}
-      {isPlaying && trackPlaying === trackId && src !== null && (
+      {isPlaying && trackPlaying === trackId && src && (
         <i className="fas fa-pause" id="play-icon" onClick={handlePause} />
       )}
-      {src !== null && (
+      {src && (
         <audio id={trackId} src={src} preload="none" onEnded={handlePause} />
       )}
     </div>

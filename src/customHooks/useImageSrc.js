@@ -5,7 +5,7 @@ export default images => {
   const [currentSrc, setCurrentSrc] = useState("");
 
   useEffect(() => {
-    if (images.length === 0) {
+    if (!images.length) {
       const fallbackImg = new Image();
       fallbackImg.src = fallbackSrc;
       fallbackImg.onload = () => {

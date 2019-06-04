@@ -18,6 +18,7 @@ export default (id, src) => {
     } else if (trackPlaying === id && isPlaying === false) {
       return audio.pause();
     } else if (trackPlaying !== id) {
+      audio.currentTime = 0;
       return audio.pause();
     }
   };

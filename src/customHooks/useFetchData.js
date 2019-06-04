@@ -14,7 +14,7 @@ export default () => {
     const token = localStorage.getItem("token");
 
     const dataFetch = async () => {
-      if (token === undefined) {
+      if (!token) {
         return;
       }
       const apiRes = await Promise.all(

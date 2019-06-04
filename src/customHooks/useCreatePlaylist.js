@@ -48,7 +48,7 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
 
   useEffect(() => {
     const playlistCall = async () => {
-      if (!createPlaylist || token === null) {
+      if (!createPlaylist || !token) {
         return;
       }
       if (createPlaylist) {

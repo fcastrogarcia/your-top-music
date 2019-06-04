@@ -13,21 +13,30 @@ export const TrackCard = ({
   index,
   external_urls
 }) => {
+  //state & context
   const [error, setError] = useState(false);
   const { track } = useContext(PlayerContext);
-
   const { trackPlaying, isPlaying } = track;
+
   const trackId = index;
+  //name length handling
   const trackName = name.length > 60 ? name.slice(0, 60).concat("...") : name;
   const albumName =
     album.name.length > 35 ? album.name.slice(0, 33).concat("...") : album.name;
+
   const playerProps = {
     error,
     setError,
     trackId,
     src: preview_url
   };
-  const imageSrc = album.images.lenght !== 0 ? album.images[1].url : null;
+  //image src
+  const { images } = album;
+  const image_src = !images.length
+    ? null
+    : images.length < 2
+    ? images[0].url
+    : images[1].url;
 
   return (
     <div className="card">
@@ -37,13 +46,9 @@ export const TrackCard = ({
       )}
       <p className="index">{index}</p>
       <span className="img-container">
-        {imageSrc && (
+        {image_src && (
           <LazyLoad once>
-            <img
-              src={album.images[1].url}
-              className="card-image"
-              alt="cover-art"
-            />
+            <img src={image_src} className="card-image" alt="cover-art" />
           </LazyLoad>
         )}
         <Player {...playerProps} />
