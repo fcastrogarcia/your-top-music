@@ -20,7 +20,7 @@ const LoginButton = () => {
       >
         {loaded && <span className="button-text">Connect </span>}
         {loaded && <i className="fab fa-spotify" />}
-        {!loaded && <ScaleLoader color={"#FFFFFF"} height={"22"} />}
+        {!loaded && <ScaleLoader color={"#FFFFFF"} height={22} />}
       </button>
     </Fragment>
   );

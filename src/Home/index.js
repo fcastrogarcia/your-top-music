@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useContext } from "react";
+import { Redirect } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
 import useFetchData from "../customHooks/useFetchData";
 import useTokenParser from "../customHooks/useParseToken";
@@ -23,7 +24,7 @@ export default function Home() {
 
   return (
     <Fragment>
-      {error && <Error />}
+      {error && <Redirect to="/connect" />}
       {isLoading && !error && <BarLoader />}
       {!isLoading && !error && (
         <Fragment>

@@ -20,7 +20,7 @@ export default () => {
       const apiRes = await Promise.all(
         endpoints.map(endpoint => spotify(token)(endpoint))
       ).catch(error => dispatch({ type: "ERROR", payload: true }));
-      if (!error) {
+      if (apiRes) {
         const res = apiRes.map((res, index) =>
           index === 0 ? res.data : res.data.items
         );
