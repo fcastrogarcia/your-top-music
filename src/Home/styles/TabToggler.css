@@ -19,6 +19,7 @@
   border: none;
   font-size: 1.1em;
   color: #002280;
+  font-weight: 700;
 }
 .tab-active {
   font-weight: 700;
@@ -58,7 +59,7 @@
 
 @media only screen and (max-width: 767px) {
   .tab {
-    font-size: 1.2em;
+    font-size: 1.1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,6 +85,7 @@
     padding: 0;
     bottom: 0;
     z-index: 1;
+    /* border-top: 0.1px solid rgba(0, 0, 0, 0.9); */
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
 }
