@@ -27,12 +27,10 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
   const [playlist, playlistDispatch] = useReducer(reducer, initialState);
   const { store, dispatch } = useContext(DataContext);
 
-  const { data } = store;
+  const { data, access_token } = store;
   const user_id = data.userData.id;
   const { short_term, medium_term, long_term } = data.tracks;
 
-  //token
-  const token = localStorage.getItem("token");
   //uris array
   const short_term_uris = short_term.map(item => item.uri);
   const medium_term_uris = medium_term.map(item => item.uri);
@@ -48,21 +46,24 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
 
   useEffect(() => {
     const playlistCall = async () => {
-      if (!createPlaylist || !token) {
+      if (!createPlaylist || !access_token) {
         return;
       }
       if (createPlaylist) {
         playlistDispatch({ type: "LOADING", payload: true });
-        const playlistsResponse = await newPlaylist(user_id, token)
+        const playlistsResponse = await newPlaylist(user_id, access_token)
           .post("/", playlistData)
           .catch(error => dispatch({ type: "ERROR", payload: true }));
         const playlist_id = playlistsResponse.data.id;
 
-        await handlePlaylists(playlist_id, token)
+        await handlePlaylists(playlist_id, access_token)
           .post("/tracks", tracksBody)
           .catch(error => dispatch({ type: "ERROR", payload: true }));
 
-        const imageCoverResponse = await handlePlaylists(playlist_id, token)
+        const imageCoverResponse = await handlePlaylists(
+          playlist_id,
+          access_token
+        )
           .get("/images")
           .catch(error => dispatch({ type: "ERROR", payload: true }));
         playlistDispatch({

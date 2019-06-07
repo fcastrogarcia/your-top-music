@@ -3,12 +3,18 @@ import React, { createContext, useMemo, useReducer } from "react";
 export const DataContext = createContext();
 
 const initialState = {
+  access_token: "",
   data: {},
   type: "artists",
   error: false
 };
 const reducer = (state, action) => {
   switch (action.type) {
+    case "TOKEN":
+      return {
+        ...state,
+        access_token: action.payload
+      };
     case "DATA":
       return {
         ...state,
