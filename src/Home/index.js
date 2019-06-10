@@ -5,7 +5,6 @@ import useFetchData from "../customHooks/useFetchData";
 import useTokenParser from "../customHooks/useParseToken";
 //ui-components
 import BarLoader from "./components/LoadingSpinner";
-import Error from "./components/Error";
 import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import ShortTermTab from "./components/tabs/ShortTermTab";
@@ -15,7 +14,7 @@ import PlaylistCreator from "./components/Playlists/PlaylistCreator";
 
 export default function Home() {
   const { store } = useContext(DataContext);
-  const { error } = store;
+  const { token_expired } = store;
   //local state
   const [tab, setTab] = useState(1);
   //custom hooks
@@ -24,9 +23,9 @@ export default function Home() {
 
   return (
     <Fragment>
-      {error && <Redirect to="/connect" />}
-      {isLoading && !error && <BarLoader />}
-      {!isLoading && !error && (
+      {token_expired && <Redirect to="/connect" />}
+      {isLoading && !token_expired && <BarLoader />}
+      {!isLoading && !token_expired && (
         <Fragment>
           <Header />
           <NavBar setTab={setTab} tab={tab} />

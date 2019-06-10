@@ -1,6 +1,13 @@
+.col-container {
+  display: flex;
+}
+.col-container > span {
+  display: flex;
+}
 .header-emojis {
   font-size: 1.4em;
-  display: block;
+  cursor: default;
+  width: 4.5em;
   margin: 1.1em 0 1.1em 0.5em;
 }
 .image {

@@ -6,7 +6,7 @@ const initialState = {
   access_token: "",
   data: {},
   type: "artists",
-  error: false
+  token_expired: false
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -28,7 +28,7 @@ const reducer = (state, action) => {
     case "ERROR":
       return {
         ...state,
-        error: action.payload
+        token_expired: action.payload
       };
     default:
       return state;
