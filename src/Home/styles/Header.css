@@ -9,6 +9,7 @@
   cursor: default;
   width: 4.5em;
   margin: 1.1em 0 1.1em 0.5em;
+  transition: text-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .image {
   margin: 1.2em 1.2em 1.2em 0.3em;
