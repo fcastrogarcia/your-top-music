@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
+import { withRouter } from "react-router-dom";
 import "../../styles/UserDisplay.css";
 import { Image } from "react-bootstrap";
 import { DataContext } from "../../../context/DataContext";
 import useImageSrc from "../../../customHooks/useImageSrc";
 
-export default () => {
+const UserDisplay = props => {
   //Context
   const { store } = useContext(DataContext);
   const { data } = store;
@@ -25,9 +26,14 @@ export default () => {
     setIsOpen(false);
     document.removeEventListener("click", closeMenu);
   };
+  const logout = () => {
+    localStorage.removeItem("token");
+    props.history.push("/");
+  };
+
   return (
     <div className="user-container">
-      <span className="display-name" onClick={!isOpen ? showMenu : null}>
+      <span className="display-name" onClick={!isOpen ? showMenu : undefined}>
         <i className="fas fa-caret-down" id="caret" />
         <p>{display_name}</p>
         <Image src={src} className="image" roundedCircle />
@@ -39,8 +45,13 @@ export default () => {
               Open in Spotify
             </a>
           </span>
+          <span onClick={logout} style={{ cursor: "pointer" }}>
+            Log Out
+          </span>
         </span>
       )}
     </div>
   );
 };
+
+export default withRouter(UserDisplay);
