@@ -23,6 +23,12 @@ const reducer = (state, action) => {
   }
 };
 
+const loading = state => ({
+  type: "LOADING",
+  payload: state
+});
+const _error = { type: "ERROR", payload: true };
+
 export default (createPlaylist, setCreatePlaylist, tab) => {
   const [playlist, playlistDispatch] = useReducer(reducer, initialState);
   const { store, dispatch } = useContext(DataContext);
@@ -30,7 +36,9 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
   const { data, access_token } = store;
   const user_id = data.userData.id;
   const { short_term, medium_term, long_term } = data.tracks;
-
+  //token
+  const localToken = localStorage.getItem("token");
+  const _token = localToken || access_token;
   //uris array
   const short_term_uris = short_term.map(item => item.uri);
   const medium_term_uris = medium_term.map(item => item.uri);
@@ -46,26 +54,25 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
 
   useEffect(() => {
     const playlistCall = async () => {
-      if (!createPlaylist || !access_token) {
+      if (!createPlaylist || !_token) {
         return;
       }
       if (createPlaylist) {
-        playlistDispatch({ type: "LOADING", payload: true });
-        const playlistsResponse = await newPlaylist(user_id, access_token)
+        playlistDispatch(loading(true));
+
+        const playlistsResponse = await newPlaylist(user_id, _token)
           .post("/", playlistData)
-          .catch(error => dispatch({ type: "ERROR", payload: true }));
+          .catch(() => dispatch(_error));
         const playlist_id = playlistsResponse.data.id;
 
-        await handlePlaylists(playlist_id, access_token)
+        await handlePlaylists(playlist_id, _token)
           .post("/tracks", tracksBody)
-          .catch(error => dispatch({ type: "ERROR", payload: true }));
+          .catch(() => dispatch(_error));
 
-        const imageCoverResponse = await handlePlaylists(
-          playlist_id,
-          access_token
-        )
+        const imageCoverResponse = await handlePlaylists(playlist_id, _token)
           .get("/images")
-          .catch(error => dispatch({ type: "ERROR", payload: true }));
+          .catch(() => dispatch(_error));
+        //set playlist data
         playlistDispatch({
           type: "DATA",
           payload: {
@@ -73,7 +80,8 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
             image_url: imageCoverResponse.data[0].url
           }
         });
-        playlistDispatch({ type: "LOADING", payload: false });
+        //turn spinner off
+        playlistDispatch(loading(false));
       }
       setCreatePlaylist(false);
     };
