@@ -1,8 +1,8 @@
 import React from "react";
 import usePlayTrack from "../../../customHooks/usePlayTrack";
 
-export default ({ src, trackId, error, setError }) => {
-  const { track, dispatch } = usePlayTrack(trackId, src);
+export default ({ src, trackId, error, setError, audioRef }) => {
+  const { track, dispatch } = usePlayTrack(trackId, src, audioRef);
   const { trackPlaying, isPlaying } = track;
 
   const handlePlay = () => {
@@ -40,7 +40,13 @@ export default ({ src, trackId, error, setError }) => {
         <i className="fas fa-pause" id="play-icon" onClick={handlePause} />
       )}
       {src && (
-        <audio id={trackId} src={src} preload="none" onEnded={handlePause} />
+        <audio
+          ref={audioRef}
+          id={trackId}
+          src={src}
+          preload="none"
+          onEnded={handlePause}
+        />
       )}
     </div>
   );

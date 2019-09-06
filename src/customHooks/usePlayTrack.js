@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { PlayerContext } from "../context/PlayerContext";
 
-export default (id, src) => {
+export default (id, src, audioRef) => {
   const { track, dispatch } = useContext(PlayerContext);
   const { trackPlaying, isPlaying } = track;
   const state = {
@@ -12,14 +12,13 @@ export default (id, src) => {
     return state;
   }
   const playPause = () => {
-    const audio = document.getElementById(id);
     if (trackPlaying === id && isPlaying === true) {
-      return audio.play();
+      return audioRef.current.play();
     } else if (trackPlaying === id && isPlaying === false) {
-      return audio.pause();
+      return audioRef.current.pause();
     } else if (trackPlaying !== id) {
-      audio.currentTime = 0;
-      return audio.pause();
+      audioRef.current.currentTime = 0;
+      return audioRef.current.pause();
     }
   };
   useEffect(() => {

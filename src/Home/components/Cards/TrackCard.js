@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import Player from "./Player";
 import PlayingOverlay from "./PlayingOverlay";
 import ErrorOverlay from "./ErrorOverlay";
@@ -14,6 +14,7 @@ export const TrackCard = ({
   external_urls
 }) => {
   //state & context
+  const audioRef = useRef(null);
   const [error, setError] = useState(false);
   const { track } = useContext(PlayerContext);
   const { trackPlaying, isPlaying } = track;
@@ -28,7 +29,8 @@ export const TrackCard = ({
     error,
     setError,
     trackId,
-    src: preview_url
+    src: preview_url,
+    audioRef
   };
   //image src
   const { images } = album;
@@ -42,7 +44,11 @@ export const TrackCard = ({
     <div className="card">
       {error && <ErrorOverlay src={external_urls} />}
       {isPlaying && trackPlaying === trackId && (
-        <PlayingOverlay trackId={trackId} src={external_urls.spotify} />
+        <PlayingOverlay
+          trackId={trackId}
+          src={external_urls.spotify}
+          audioRef={audioRef}
+        />
       )}
       <p className="index">{index}</p>
       <span className="img-container">

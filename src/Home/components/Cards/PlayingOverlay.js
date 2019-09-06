@@ -3,13 +3,11 @@ import { BeatLoader } from "react-spinners";
 import Equalizer from "./Equalizer";
 import "../../styles/Equalizer.css";
 
-export default ({ trackId, src }) => {
+export default ({ trackId, src, audioRef }) => {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    let track = document.getElementById(trackId);
-
-    track.addEventListener("playing", () => {
+    audioRef.current.addEventListener("playing", () => {
       setPlaying(true);
     });
   }, [trackId]);

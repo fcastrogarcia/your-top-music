@@ -20,7 +20,7 @@ function Home(props) {
   //custom hooks
   const { unauthorized } = useTokenParser(props);
   const { isLoading } = useFetchData();
-  console.log("unauthorized", unauthorized);
+
   return (
     <Fragment>
       {(token_expired || unauthorized) && <Redirect to="/connect" />}
