@@ -18,12 +18,12 @@ function Home(props) {
   //local state
   const [tab, setTab] = useState(1);
   //custom hooks
-  const { unauthorized } = useTokenParser(props);
+  useTokenParser(props);
   const { isLoading } = useFetchData();
 
   return (
     <Fragment>
-      {(token_expired || unauthorized) && <Redirect to="/connect" />}
+      {/* {(token_expired || unauthorized) && <Redirect to="/connect" />} */}
       {isLoading && !token_expired && <BarLoader />}
       {!isLoading && !token_expired && (
         <Fragment>
