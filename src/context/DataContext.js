@@ -1,20 +1,15 @@
-import React, { createContext, useMemo, useReducer } from "react";
+import React, { createContext, useMemo, useReducer, useState } from "react";
+import queryString from "query-string";
 
 export const DataContext = createContext();
 
 const initialState = {
-  access_token: "",
   data: {},
   type: "artists",
   token_expired: false
 };
 const reducer = (state, action) => {
   switch (action.type) {
-    case "TOKEN":
-      return {
-        ...state,
-        access_token: action.payload
-      };
     case "DATA":
       return {
         ...state,
@@ -35,14 +30,23 @@ const reducer = (state, action) => {
   }
 };
 
+// function handleToken() {
+//   const { access_token } = queryString.parse(window.location.search);
+//   return access_token;
+// }
+
 export function DataProvider(props) {
   const [store, dispatch] = useReducer(reducer, initialState);
+  const [token, setToken] = useState("");
+
   const value = useMemo(() => {
     return {
       store,
-      dispatch
+      dispatch,
+      token,
+      setToken
     };
-  }, [store]);
+  }, [store, token]);
 
   return (
     <DataContext.Provider value={value}>{props.children}</DataContext.Provider>
