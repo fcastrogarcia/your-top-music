@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default () => {
-  useEffect(() => {
-    const container = document.querySelector(".col-container > span");
-    const emojis = container.querySelector(".header-emojis");
-    const walk = 30;
+  const emojisRef = useRef();
 
+  useEffect(() => {
+    const refCopy = emojisRef;
+    const walk = 22;
+    
     function shadow(e) {
       const isMobile = window.matchMedia("(max-width: 767px)").matches;
-
       if (isMobile) {
         return;
       }
-      const { offsetWidth: width, offsetHeight: height } = container;
+      const { offsetWidth: width, offsetHeight: height } = emojisRef.current;
       let { offsetX: x, offsetY: y, target } = e;
       if (this !== target) {
         x = x + target.offsetLeft;
@@ -20,17 +20,24 @@ export default () => {
       }
       const xWalk = Math.round((x / width) * walk - walk / 2);
       const yWalk = Math.round((y / height) * walk - walk / 2);
-      emojis.style.textShadow = `
+      emojisRef.current.style.textShadow = `
       ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7),
       ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,0,0.7),
       ${yWalk * -1}px ${xWalk}px 0 rgba(0,0,255,0.7)
     `;
     }
     function defaultShadow() {
-      emojis.style.textShadow = "0px 0px";
+      emojisRef.current.style.textShadow = "0px 0px";
     }
     //listener
-    container.addEventListener("mousemove", shadow);
-    container.addEventListener("mouseleave", defaultShadow);
+    emojisRef.current.addEventListener("mousemove", shadow);
+    emojisRef.current.addEventListener("mouseleave", defaultShadow);
+
+    return () => {
+      refCopy.removeEventListener("mouseleave", defaultShadow);
+      refCopy.removeEventListener("mousemove", shadow);
+    };
   }, []);
+
+  return { emojisRef };
 };
