@@ -1,5 +1,4 @@
 import React, { createContext, useMemo, useReducer, useState } from "react";
-import queryString from "query-string";
 
 export const DataContext = createContext();
 
@@ -29,11 +28,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
-// function handleToken() {
-//   const { access_token } = queryString.parse(window.location.search);
-//   return access_token;
-// }
 
 export function DataProvider(props) {
   const [store, dispatch] = useReducer(reducer, initialState);

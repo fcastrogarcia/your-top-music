@@ -17,7 +17,7 @@ export default () => {
       if (_token) {
         const apiRes = await Promise.all(
           endpoints.map(endpoint => spotify(_token)(endpoint))
-        ).catch(_ => dispatch({ type: "ERROR", payload: true }));
+        ).catch(() => dispatch({ type: "ERROR", payload: true }));
         if (apiRes) {
           const res = apiRes.map((res, index) =>
             index === 0 ? res.data : res.data.items
@@ -44,7 +44,7 @@ export default () => {
       }
     };
     dataFetch();
-  }, [localToken, dispatch, _token]);
+  }, [localToken, dispatch, token, _token]);
 
   const state = {
     isLoading
