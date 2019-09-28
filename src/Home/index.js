@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useContext } from "react";
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
 import useFetchData from "../customHooks/useFetchData";
 import useTokenParser from "../customHooks/useParseToken";
@@ -23,7 +23,6 @@ function Home(props) {
 
   return (
     <Fragment>
-      {/* {(token_expired || unauthorized) && <Redirect to="/connect" />} */}
       {isLoading && !token_expired && <BarLoader />}
       {!isLoading && !token_expired && (
         <Fragment>
