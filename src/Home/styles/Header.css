@@ -1,20 +1,23 @@
-.col-container {
+header {
   display: flex;
-}
-.col-container > span {
-  display: flex;
+  justify-content: space-between;
+  height: 65px;
+  padding: 0 1em;
+  box-shadow: 0 2px 35px 0 rgba(0, 0, 0, 0.1);
 }
 .header-emojis {
+  height: 100%;
+  width: 4.5em;
+  text-align: center;
+  /* change this value to match header height */
+  line-height: 65px;
   font-size: 1.4em;
   cursor: default;
-  width: 4.5em;
-  margin: 1.1em 0 1.1em 0.5em;
   transition: text-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.image {
-  margin: 1.2em 1.2em 1.2em 0.3em;
+.user-image {
   width: 2.3em;
-  height: auto;
+  margin-left: 10px;
   box-shadow: 5px 15px 20px -15px rgba(0, 0, 0, 0.3),
     0 85px 60px -25px rgba(0, 0, 0, 0.1);
 }

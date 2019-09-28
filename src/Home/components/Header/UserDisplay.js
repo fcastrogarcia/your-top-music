@@ -36,7 +36,7 @@ const UserDisplay = props => {
       <span className="display-name" onClick={!isOpen ? showMenu : undefined}>
         <i className="fas fa-caret-down" id="caret" />
         <p>{display_name}</p>
-        <Image src={src} className="image" roundedCircle />
+        <Image src={src} className="user-image" roundedCircle />
       </span>
       {isOpen && (
         <span className="user-dropdown">
@@ -46,7 +46,7 @@ const UserDisplay = props => {
             </a>
           </span>
           <span onClick={logout} style={{ cursor: "pointer" }}>
-            Log Out
+            Log out
           </span>
         </span>
       )}
