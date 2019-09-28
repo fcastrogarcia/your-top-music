@@ -8,7 +8,7 @@ export default function useTokenParser(props) {
 
   const localToken = localStorage.getItem("token");
   const { access_token } = queryString.parse(props.location.search);
-  
+
   useEffect(() => {
     function tokenParser() {
       if (access_token) {

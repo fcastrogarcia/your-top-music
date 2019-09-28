@@ -6,7 +6,7 @@ export default () => {
   useEffect(() => {
     const refCopy = emojisRef;
     const walk = 22;
-    
+
     function shadow(e) {
       const isMobile = window.matchMedia("(max-width: 767px)").matches;
       if (isMobile) {
@@ -34,8 +34,8 @@ export default () => {
     emojisRef.current.addEventListener("mouseleave", defaultShadow);
 
     return () => {
-      refCopy.removeEventListener("mouseleave", defaultShadow);
-      refCopy.removeEventListener("mousemove", shadow);
+      refCopy.current.removeEventListener("mouseleave", defaultShadow);
+      refCopy.current.removeEventListener("mousemove", shadow);
     };
   }, []);
 
