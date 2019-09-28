@@ -7,7 +7,7 @@ import TabToggler from "./TabToggler";
 export default props => {
   return (
     <Container fluid>
-      <Row>
+      <Row style={{ marginTop: "2em" }}>
         <Col sm={12} xs={12} md={6} lg={6} className="tab-toggler-col">
           <TabToggler {...props} />
         </Col>
