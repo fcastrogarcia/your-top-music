@@ -1,15 +1,6 @@
 import axios from "axios";
 import queryString from "query-string";
 
-//data fetching
-export function spotify(token) {
-  return axios.create({
-    baseURL: "https://api.spotify.com/v1/me",
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
-}
 //playlists creation
 export function newPlaylist(user_id, token) {
   return axios.create({
