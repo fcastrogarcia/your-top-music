@@ -1,22 +1,21 @@
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import { endpoints } from "../services/endpoints";
-import { spotify } from "../services/axios";
+import axios from "axios";
 
 export default () => {
   //Context
   const { token, dispatch } = useContext(DataContext);
   //local state
   const [isLoading, setIsLoading] = useState(true);
-  //tokens
-  const localToken = localStorage.getItem("token");
-  const _token = localToken || token;
 
   useEffect(() => {
     const dataFetch = async () => {
-      if (_token) {
+      if (token) {
         const apiRes = await Promise.all(
-          endpoints.map(endpoint => spotify(_token)(endpoint))
+          endpoints.map(endpoint =>
+            axios.get(`https://api.spotify.com/v1/me${endpoint}`)
+          )
         ).catch(() => dispatch({ type: "ERROR", payload: true }));
         if (apiRes) {
           const res = apiRes.map((res, index) =>
@@ -44,7 +43,7 @@ export default () => {
       }
     };
     dataFetch();
-  }, [localToken, dispatch, token, _token]);
+  }, [dispatch, token]);
 
   const state = {
     isLoading

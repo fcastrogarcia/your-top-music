@@ -1,6 +1,7 @@
 import { useEffect, useContext, useReducer } from "react";
 import { DataContext } from "../context/DataContext";
-import { newPlaylist, playlistBody, handlePlaylists } from "../services/axios";
+import { playlistBody } from "../services/axios";
+import axios from "axios";
 
 const initialState = {
   loading: false,
@@ -33,12 +34,9 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
   const [playlist, playlistDispatch] = useReducer(reducer, initialState);
   const { store, dispatch } = useContext(DataContext);
 
-  const { data, access_token } = store;
+  const { data } = store;
   const user_id = data.userData.id;
   const { short_term, medium_term, long_term } = data.tracks;
-  //token
-  const localToken = localStorage.getItem("token");
-  const _token = localToken || access_token;
   //uris array
   const short_term_uris = short_term.map(item => item.uri);
   const medium_term_uris = medium_term.map(item => item.uri);
@@ -54,23 +52,26 @@ export default (createPlaylist, setCreatePlaylist, tab) => {
 
   useEffect(() => {
     const playlistCall = async () => {
-      if (!createPlaylist || !_token) {
-        return;
-      }
       if (createPlaylist) {
         playlistDispatch(loading(true));
 
-        const playlistsResponse = await newPlaylist(user_id, _token)
-          .post("/", playlistData)
+        const playlistsResponse = await axios
+          .post(
+            `https://api.spotify.com/v1/users/${user_id}/playlists`,
+            playlistData
+          )
           .catch(() => dispatch(_error));
         const playlist_id = playlistsResponse.data.id;
 
-        await handlePlaylists(playlist_id, _token)
-          .post("/tracks", tracksBody)
+        await axios
+          .post(
+            `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`,
+            tracksBody
+          )
           .catch(() => dispatch(_error));
 
-        const imageCoverResponse = await handlePlaylists(playlist_id, _token)
-          .get("/images")
+        const imageCoverResponse = await axios
+          .get(`https://api.spotify.com/v1/playlists/${playlist_id}/images`)
           .catch(() => dispatch(_error));
         //set playlist data
         playlistDispatch({
