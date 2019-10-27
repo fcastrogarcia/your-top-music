@@ -1,14 +1,17 @@
 import React, { Fragment, useState } from "react";
 import { ScaleLoader } from "react-spinners";
 import "../style.css";
+import querystring from "querystring";
 
 const LoginButton = () => {
   const [loaded, setLoaded] = useState(true);
 
   const handleClick = () => {
     setLoaded(!loaded);
-    const redirect = (window.location =
-      "https://spotify-project-backend.herokuapp.com/login");
+    const redirectURL = querystring.stringify({
+      returnTo: "https://yourtopmusic.netlify.com/home"
+    });
+    const redirect = (window.location = `https://spotify-project-backend.herokuapp.com/login?${redirectURL}`);
     return redirect;
   };
 
