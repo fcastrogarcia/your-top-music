@@ -1,4 +1,5 @@
 import { useState } from "react";
+import setAuthToken from "../../../services/setToken";
 
 export default props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,8 @@ export default props => {
     document.removeEventListener("click", closeMenu);
   };
   const logout = () => {
-    localStorage.removeItem("token");
+    window.localStorage.removeItem("t");
+    setAuthToken(false);
     props.history.push("/");
   };
 

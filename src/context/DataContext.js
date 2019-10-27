@@ -1,5 +1,5 @@
 import React, { createContext, useMemo, useReducer, useState } from "react";
-import axios from "axios";
+import setAxiosHeader from "../services/setToken";
 
 export const DataContext = createContext();
 
@@ -34,10 +34,9 @@ export function DataProvider(props) {
   const [store, dispatch] = useReducer(reducer, initialState);
   const [token, setToken] = useState(() => {
     const t = window.localStorage.getItem("t") || "";
-    axios.defaults.headers.common = { Authorization: `Bearer ${t}` };
+    t && setAxiosHeader(t);
     return t;
   });
-  console.log(token);
   const value = useMemo(() => {
     return {
       store,
