@@ -9,7 +9,7 @@ const LoginButton = () => {
   const handleClick = () => {
     setLoaded(!loaded);
     const redirectURL = querystring.stringify({
-      returnTo: "https://yourtopmusic.netlify.com/home"
+      returnTo: "https://focused-wright-28af53.netlify.app/home",
     });
     const redirect = (window.location = `https://spotify-project-backend.herokuapp.com/login?${redirectURL}`);
     return redirect;
